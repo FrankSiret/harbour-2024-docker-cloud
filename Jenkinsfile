@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh 'echo "Deploying to the cloud..."'
 
-                ansiblePlaybook credentialsId: 'tkey',
+                ansiblePlaybook credentialsId: 'ckey',
                                 inventory: 'inventory.ini',
                                 playbook: 'playbook.yml'
 
