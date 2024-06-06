@@ -38,4 +38,4 @@ jobs:
       run: |
         echo "$SSH_PKEY" > ~/.ssh/id_rsa_gh
         chmod 600 ~/.ssh/id_rsa_gh
-        ansible-playbook -i ~/.ssh/id_rsa_gh inventory.ini playbook.yml
+        ansible-playbook --key-file ~/.ssh/id_rsa_gh -i inventory.ini playbook.yml
