@@ -30,7 +30,7 @@ jobs:
         name: main
         path: ${{ github.workspace }}/main
 
-    - name: Deploy
+    - name: Deploy to target
       shell: bash
       env:
         SSH_PKEY: ${{ secrets.SSH_KEY }}
