@@ -21,6 +21,9 @@ jobs:
       with:
         go-version: '1.22'
 
+    - name: Init Modules
+      run: go mod init
+
     - name: Build
       run: go build -o main -v ./...
 
@@ -29,3 +32,13 @@ jobs:
       with:
         name: main
         path: ${{ github.workspace }}/main
+
+    - name: Deploy
+      shell: bash
+      env:
+        SSH_PKEY: ${{ secrets.SSH_KEY }}
+        ANSIBLE_HOST_KEY_CHECKING: false
+      run: |
+        echo "$SSH_PKEY" > ~/.ssh/id_rsa_gh
+        chmod 600 ~/.ssh/id_rsa_gh
+        ansible-playbook -i ~/.ssh/id_rsa_gh inventory.ini playbook.yml
