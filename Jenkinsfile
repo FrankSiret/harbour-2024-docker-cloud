@@ -14,14 +14,14 @@ pipeline {
             }
         }
 
-        stage('Deploy to the cloud') {
+        stage('Deploy github-action') {
             environment {
                 ANSIBLE_HOST_KEY_CHECKING = 'false'
             }
             steps {
-                sh 'echo "Deploying to the cloud..."'
+                sh 'echo "Deploying github-action"'
 
-                ansiblePlaybook credentialsId: 'ckey',
+                ansiblePlaybook credentialsId: 'tkey',
                                 inventory: 'inventory.ini',
                                 playbook: 'playbook.yml'
 

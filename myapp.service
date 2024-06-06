@@ -2,7 +2,7 @@
 Description=My App
 
 [Service]
-ExecStart=/home/ubuntu/main
+ExecStart=/home/vagrant/main
 Type=simple
 
 [Install]

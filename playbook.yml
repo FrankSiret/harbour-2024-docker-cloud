@@ -15,11 +15,11 @@
   - name: "Copy binary artifact"
     copy:
       src: main
-      dest: /home/ubuntu/main
+      dest: /home/vagrant/main
 
   - name: "Make artifact executable"
     file:
-      path: /home/ubuntu/main
+      path: /home/vagrant/main
       mode: "u+x"
     become: true
 
